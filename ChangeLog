@@ -1,0 +1,36 @@
+Revision history for Future-IO
+
+0.06    2019-06-26 18:11:54
+        [CHANGES]
+         * Added Future::IO::ImplBase to assist implementation authors
+
+0.05    2019-05-07 01:00:19
+        [CHANGES]
+         * Misc small docs fixes
+
+        [BUGFIXES]
+         * Expect EINVAL on MSWin32 for pipe close write test, rather than
+           EPIPE
+
+0.04    2019-04-27 19:08:40
+        [CHANGES]
+         * Added ->syswrite and ->syswrite_exactly
+
+        [BUGFIXES]
+         * Implement ->sysread_exactly test a better way that shouldn't break
+           on Windows due to select() on pipes
+
+0.03    2019-04-25 22:39:55
+        [CHANGES]
+         * Add ->sysread_exactly
+
+0.02    2019-04-10 14:01:17
+        [CHANGES]
+         * Provide and document the $IMPL package variable mechanism
+
+        [BUGFIXES]
+         * Skip t/10sleep+sysread.t on MSWin32 because Windows doesn't support
+           select() on pipes (RT129108)
+
+0.01    2019-04-10 01:44:18
+        First version, released on an unsuspecting world.
