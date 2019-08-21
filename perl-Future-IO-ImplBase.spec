@@ -4,13 +4,15 @@
 #
 Name     : perl-Future-IO-ImplBase
 Version  : 0.06
-Release  : 1
+Release  : 2
 URL      : https://cpan.metacpan.org/authors/id/P/PE/PEVANS/Future-IO-0.06.tar.gz
 Source0  : https://cpan.metacpan.org/authors/id/P/PE/PEVANS/Future-IO-0.06.tar.gz
 Summary  : 'Future-returning IO methods'
 Group    : Development/Tools
 License  : Artistic-1.0 Artistic-1.0-Perl GPL-1.0
 Requires: perl-Future-IO-ImplBase-license = %{version}-%{release}
+Requires: perl(Future)
+Requires: perl(Struct::Dumb)
 BuildRequires : buildreq-cpan
 BuildRequires : perl(Future)
 BuildRequires : perl(Struct::Dumb)
