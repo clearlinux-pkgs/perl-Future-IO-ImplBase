@@ -4,13 +4,14 @@
 #
 Name     : perl-Future-IO-ImplBase
 Version  : 0.06
-Release  : 2
+Release  : 3
 URL      : https://cpan.metacpan.org/authors/id/P/PE/PEVANS/Future-IO-0.06.tar.gz
 Source0  : https://cpan.metacpan.org/authors/id/P/PE/PEVANS/Future-IO-0.06.tar.gz
 Summary  : 'Future-returning IO methods'
 Group    : Development/Tools
 License  : Artistic-1.0 Artistic-1.0-Perl GPL-1.0
 Requires: perl-Future-IO-ImplBase-license = %{version}-%{release}
+Requires: perl-Future-IO-ImplBase-perl = %{version}-%{release}
 Requires: perl(Future)
 Requires: perl(Struct::Dumb)
 BuildRequires : buildreq-cpan
@@ -48,8 +49,18 @@ Group: Default
 license components for the perl-Future-IO-ImplBase package.
 
 
+%package perl
+Summary: perl components for the perl-Future-IO-ImplBase package.
+Group: Default
+Requires: perl-Future-IO-ImplBase = %{version}-%{release}
+
+%description perl
+perl components for the perl-Future-IO-ImplBase package.
+
+
 %prep
 %setup -q -n Future-IO-0.06
+cd %{_builddir}/Future-IO-0.06
 
 %build
 export http_proxy=http://127.0.0.1:9/
@@ -67,7 +78,7 @@ fi
 %install
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/perl-Future-IO-ImplBase
-cp LICENSE %{buildroot}/usr/share/package-licenses/perl-Future-IO-ImplBase/LICENSE
+cp %{_builddir}/Future-IO-0.06/LICENSE %{buildroot}/usr/share/package-licenses/perl-Future-IO-ImplBase/ae5457947130c5a7a05fc82ca7baf0570bf57d00
 if test -f Makefile.PL; then
 make pure_install PERL_INSTALL_ROOT=%{buildroot} INSTALLDIRS=vendor
 else
@@ -80,8 +91,6 @@ find %{buildroot} -type f -name '*.bs' -empty -exec rm -f {} ';'
 
 %files
 %defattr(-,root,root,-)
-/usr/lib/perl5/vendor_perl/5.28.2/Future/IO.pm
-/usr/lib/perl5/vendor_perl/5.28.2/Future/IO/ImplBase.pm
 
 %files dev
 %defattr(-,root,root,-)
@@ -90,4 +99,9 @@ find %{buildroot} -type f -name '*.bs' -empty -exec rm -f {} ';'
 
 %files license
 %defattr(0644,root,root,0755)
-/usr/share/package-licenses/perl-Future-IO-ImplBase/LICENSE
+/usr/share/package-licenses/perl-Future-IO-ImplBase/ae5457947130c5a7a05fc82ca7baf0570bf57d00
+
+%files perl
+%defattr(-,root,root,-)
+/usr/lib/perl5/vendor_perl/5.30.1/Future/IO.pm
+/usr/lib/perl5/vendor_perl/5.30.1/Future/IO/ImplBase.pm
