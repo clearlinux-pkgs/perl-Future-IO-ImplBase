@@ -4,7 +4,7 @@
 #
 Name     : perl-Future-IO-ImplBase
 Version  : 0.08
-Release  : 7
+Release  : 8
 URL      : https://cpan.metacpan.org/authors/id/P/PE/PEVANS/Future-IO-0.08.tar.gz
 Source0  : https://cpan.metacpan.org/authors/id/P/PE/PEVANS/Future-IO-0.08.tar.gz
 Summary  : 'Future-returning IO methods'
@@ -103,5 +103,5 @@ find %{buildroot} -type f -name '*.bs' -empty -exec rm -f {} ';'
 
 %files perl
 %defattr(-,root,root,-)
-/usr/lib/perl5/vendor_perl/5.30.3/Future/IO.pm
-/usr/lib/perl5/vendor_perl/5.30.3/Future/IO/ImplBase.pm
+/usr/lib/perl5/vendor_perl/5.32.1/Future/IO.pm
+/usr/lib/perl5/vendor_perl/5.32.1/Future/IO/ImplBase.pm
