@@ -4,10 +4,10 @@
 # Using build pattern: cpan
 #
 Name     : perl-Future-IO-ImplBase
-Version  : 0.13
-Release  : 17
-URL      : https://cpan.metacpan.org/authors/id/P/PE/PEVANS/Future-IO-0.13.tar.gz
-Source0  : https://cpan.metacpan.org/authors/id/P/PE/PEVANS/Future-IO-0.13.tar.gz
+Version  : 0.14
+Release  : 18
+URL      : https://cpan.metacpan.org/authors/id/P/PE/PEVANS/Future-IO-0.14.tar.gz
+Source0  : https://cpan.metacpan.org/authors/id/P/PE/PEVANS/Future-IO-0.14.tar.gz
 Summary  : 'Future-returning IO methods'
 Group    : Development/Tools
 License  : Artistic-1.0 Artistic-1.0-Perl GPL-1.0
@@ -18,6 +18,7 @@ Requires: perl(Struct::Dumb)
 BuildRequires : buildreq-cpan
 BuildRequires : perl(Future)
 BuildRequires : perl(Struct::Dumb)
+BuildRequires : perl(Test::Future::IO::Impl)
 # Suppress stripping binaries
 %define __strip /bin/true
 %define debug_package %{nil}
@@ -62,7 +63,8 @@ perl components for the perl-Future-IO-ImplBase package.
 
 
 %prep
-%setup -q -n Future-IO-0.13
+%setup -q -n Future-IO-0.14
+cd %{_builddir}/Future-IO-0.14
 
 %build
 export http_proxy=http://127.0.0.1:9/
@@ -70,7 +72,7 @@ export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
 if test -f Makefile.PL; then
-%{__perl} Makefile.PL
+%{__perl} -I. Makefile.PL
 make  %{?_smp_mflags}
 else
 %{__perl} Build.PL
@@ -99,7 +101,6 @@ find %{buildroot} -type f -name '*.bs' -empty -exec rm -f {} ';'
 /usr/share/man/man3/Future::IO.3
 /usr/share/man/man3/Future::IO::ImplBase.3
 /usr/share/man/man3/Future::IO::System.3
-/usr/share/man/man3/Test::Future::IO::Impl.3
 
 %files license
 %defattr(0644,root,root,0755)
