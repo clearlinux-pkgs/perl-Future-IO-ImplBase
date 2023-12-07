@@ -1,4 +1,5 @@
-0.14
+0.15
 perl(Future)
 perl(Struct::Dumb)
+perl(Test::ExpectAndCheck)
 perl(Test::Future::IO::Impl)
