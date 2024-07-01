@@ -7,7 +7,7 @@
 #
 Name     : perl-Future-IO-ImplBase
 Version  : 0.15
-Release  : 21
+Release  : 22
 URL      : https://cpan.metacpan.org/authors/id/P/PE/PEVANS/Future-IO-0.15.tar.gz
 Source0  : https://cpan.metacpan.org/authors/id/P/PE/PEVANS/Future-IO-0.15.tar.gz
 Summary  : 'Future-returning IO methods'
